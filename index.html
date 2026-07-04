@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="从零开始，建立技术直觉。全栈开发、深度学习、AI 系列博客文章。">
+  <meta name="keywords" content="个人博客, 全栈开发, 深度学习, AI, 技术博客">
+  <title>Zero's Blog — 从零开始，建立技术直觉</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================
+       Navigation
+       ============================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo" data-page="home">
+        <span class="logo-icon">🐲</span>
+        <span>Zero's <span class="logo-accent">Blog</span></span>
+      </div>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#home" data-page="home">首页</a>
+        <a href="#projects" data-page="projects">项目</a>
+        <a href="#blog" data-page="blog">博客</a>
+        <a href="#about" data-page="about">关于</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="theme-toggle" id="theme-toggle" title="切换主题">
+          <div class="toggle-thumb">☀️</div>
+        </div>
+        <a href="https://github.com" target="_blank" class="nav-social-btn">
+          <span>⭐</span> GitHub
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="菜单">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================
+       Home Page
+       ============================ -->
+  <main class="page active" id="page-home">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-label">✨ 个人技术博客</span>
+        <h1>从零开始，建立技术直觉</h1>
+        <p class="hero-subtitle">
+          分享 <span class="highlight">全栈开发</span> 与 <span class="highlight">AI</span> 领域的学习心得与实战经验
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-page="blog">开始阅读</button>
+          <button class="btn btn-outline" data-page="projects">查看项目</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Preview -->
+    <section class="section">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">项目展示</p>
+          <h2 class="section-title">把想法变成产品</h2>
+          <p class="section-desc">以下是我在学习和实践过程中完成的一些项目，它们涵盖了从前端到后端、从传统开发到 AI 应用的不同领域。</p>
+        </div>
+        <div class="projects-grid" id="projects-grid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="section philosophy">
+      <div class="container">
+        <div class="fade-in" style="text-align: center; margin-bottom: 20px;">
+          <p class="section-label">学习理念</p>
+          <h2 class="section-title">学习成本降低，但理解深度不减</h2>
+        </div>
+
+        <!-- Block 1 -->
+        <div class="philosophy-block fade-in">
+          <div class="philosophy-visual">💡</div>
+          <div class="philosophy-text">
+            <h3>在"做"中理解，触摸知识</h3>
+            <p>每一个技术概念的诞生，都源于人们要解决的某个具体问题。在动手实践中积累直觉，然后理解背后的原理。</p>
+            <div class="philosophy-list">
+              <div class="philosophy-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>先触摸，再理解</strong>
+                  <span>在动手做的过程中积累直觉，然后理解背后的原理</span>
+                </div>
+              </div>
+              <div class="philosophy-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>上手体验每个概念</strong>
+                  <span>保持所有知识点可体验，可上手</span>
+                </div>
+              </div>
+              <div class="philosophy-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>感受比讲解更重要</strong>
+                  <span>不仅知道"它怎么工作"，还需"让它工作"</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 2 -->
+        <div class="philosophy-block reverse fade-in" style="margin-top: 80px;">
+          <div class="philosophy-visual">🗺️</div>
+          <div class="philosophy-text">
+            <h3>克制而完整的路线和脉络</h3>
+            <p>面向零基础学习者设计的学习路径，克制而完整地传递必要的技术概念。</p>
+            <div class="philosophy-list">
+              <div class="philosophy-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>明确且负责任的取舍</strong>
+                  <span>有勇气说"现在不讲"，为学习者省去不必要的复杂度</span>
+                </div>
+              </div>
+              <div class="philosophy-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>设置步骤级核心目标</strong>
+                  <span>每一步都会拿到对应的结果，进一寸有一寸的喜悦</span>
+                </div>
+              </div>
+              <div class="philosophy-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>完整的技术脉络</strong>
+                  <span>每个环节都相连且呼应，让你看清整个流程如何运作</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 3 -->
+        <div class="philosophy-block fade-in" style="margin-top: 80px;">
+          <div class="philosophy-visual">🤖</div>
+          <div class="philosophy-text">
+            <h3>不写代码，管理它</h3>
+            <p>AI 已经改变了学习的前提。编码不再是最稀缺的能力，组织和管理代码才是。</p>
+            <div class="philosophy-list">
+              <div class="philosophy-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>从实现者转向管理者</strong>
+                  <span>不要上手编程，而是做代码的组织者和管理者</span>
+                </div>
+              </div>
+              <div class="philosophy-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>理解优先于编写</strong>
+                  <span>专注于技术的原理和决策，不花时间去记语法和细节</span>
+                </div>
+              </div>
+              <div class="philosophy-item">
+                <div class="check">✓</div>
+                <div>
+                  <strong>更快地到达目标</strong>
+                  <span>不被编程的复杂性阻挡，直接理解和应用核心概念</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+      <div class="container fade-in">
+        <p class="section-label">开始探索</p>
+        <h2>在博客中找到灵感</h2>
+        <p>技术文章、学习笔记、项目复盘——记录每一次从 0 到 1 的过程。</p>
+        <button class="btn btn-primary" data-page="blog">浏览博客 →</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================
+       Projects Page
+       ============================ -->
+  <div class="page" id="page-projects">
+    <section class="section" style="padding-top: calc(var(--nav-height) + 60px);">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">项目展示</p>
+          <h2 class="section-title">我的项目</h2>
+          <p class="section-desc">这些项目是我在全栈开发与 AI 探索过程中的实践成果。每个项目都从一个真实的需求出发，经历了从设计到实现的完整过程。</p>
+        </div>
+        <div class="projects-grid" id="projects-grid-page">
+          <!-- Will clone from home page via JS, or render separately -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================
+       Blog Page
+       ============================ -->
+  <div class="page" id="page-blog">
+    <section class="section" style="padding-top: calc(var(--nav-height) + 60px);">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">博客文章</p>
+          <h2 class="section-title">思考、学习、记录</h2>
+          <p class="section-desc">关于全栈开发、深度学习、AI 工具使用的学习笔记与思考。</p>
+        </div>
+        <div id="blog-list-container">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================
+       About Page
+       ============================ -->
+  <div class="page" id="page-about">
+    <section class="section" style="padding-top: calc(var(--nav-height) + 60px);">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">关于我</p>
+          <h2 class="section-title">你好，我是 Zero 👋</h2>
+        </div>
+        <div class="about-content fade-in">
+          <div class="about-avatar">
+            🐲
+          </div>
+          <div class="about-info">
+            <h3>一个热爱技术的终身学习者</h3>
+            <p>
+              我相信技术的力量在于解决问题，而不在于技术本身。从前端到后端，从传统开发到 AI 应用，我始终保持着对新技术的好奇心和对编程本质的追问。
+            </p>
+            <p>
+              这个博客记录了我从零开始学习和实践的全过程。我希望用最朴素的语言，把复杂的技术概念讲清楚，帮助每一个和我一样的初学者少走弯路。
+            </p>
+            <p>
+              在 AI 时代，我们不需要成为最优秀的编码者，但需要成为最优秀的思考者和管理者。这也是我写这个博客的初衷。
+            </p>
+
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">博客文章</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">开源项目</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">学习热情</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================
+       Footer
+       ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-logo">
+          <span class="logo-icon">🐲</span>
+          <span>Zero's <span class="logo-accent">Blog</span></span>
+        </div>
+        <div class="footer-links">
+          <a href="#projects" data-page="projects">项目</a>
+          <a href="#blog" data-page="blog">博客</a>
+          <a href="#about" data-page="about">关于</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com" target="_blank" title="GitHub">🐙</a>
+          <a href="mailto:hello@example.com" title="Email">✉️</a>
+          <a href="#" title="RSS">📡</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Zero's Blog · 从零开始，建立技术直觉
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Render projects on the dedicated Projects page too -->
+  <script>
+    // Also render projects on the projects page
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid2 = document.getElementById('projects-grid-page');
+      if (grid2) {
+        const grid1 = document.getElementById('projects-grid');
+        if (grid1) {
+          grid2.innerHTML = grid1.innerHTML;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
