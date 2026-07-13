@@ -1,0 +1,45 @@
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .philosophy-block { gap: 40px; }
+  .blog-layout { grid-template-columns: 1fr; }
+  .blog-sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
+  .sidebar-block { flex: 1; min-width: 280px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; position: fixed; top: var(--nav-height); left: 0; right: 0; background: var(--bg-nav); backdrop-filter: blur(16px); flex-direction: column; padding: 24px; gap: 0; border-bottom: 1px solid var(--border-light); }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 14px 0; border-bottom: 1px solid var(--border-light); width: 100%; }
+  .nav-links a:last-child { border-bottom: none; }
+  .menu-toggle { display: flex; }
+  .nav-social-btn { display: none; }
+  .hero { min-height: 85vh; padding-left: 16px; padding-right: 16px; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .philosophy-block, .philosophy-block.reverse { grid-template-columns: 1fr; direction: ltr; }
+  .philosophy-visual { font-size: 6rem; order: -1; }
+  .about-content { grid-template-columns: 1fr; text-align: center; }
+  .about-avatar { max-width: 240px; }
+  .about-stats { grid-template-columns: repeat(3, 1fr); }
+  .footer-main { flex-direction: column; gap: 24px; text-align: center; }
+  .section { padding: 64px 0; }
+  .blog-sidebar { flex-direction: column; }
+  .sidebar-block { min-width: unset; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+  .container { padding: 0 16px; }
+  .about-stats { grid-template-columns: 1fr; }
+  .footer-links { flex-direction: column; gap: 12px; align-items: center; }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* 文本选中样式 */
+::selection { background: var(--accent); color: white; }

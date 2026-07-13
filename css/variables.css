@@ -1,0 +1,67 @@
+/* 设计系统 — CSS 变量 */
+:root {
+  /* 浅色主题 (默认) */
+  --bg-primary: #f5f3ef;
+  --bg-secondary: #eae7e0;
+  --bg-card: #ffffff;
+  --bg-nav: rgba(245, 243, 239, 0.85);
+  --bg-footer: #edeae4;
+  --bg-tag: #f0ede7;
+  --bg-code: #e8e5de;
+
+  --text-primary: #2c2c2c;
+  --text-secondary: #5a5a5a;
+  --text-muted: #8a8a8a;
+  --text-on-accent: #ffffff;
+
+  --accent: #2a8c82;
+  --accent-hover: #237a71;
+  --accent-light: rgba(42, 140, 130, 0.1);
+
+  --border: #e0ddd6;
+  --border-light: #eae7e0;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 100px;
+
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.15s ease;
+
+  --nav-height: 72px;
+  --max-width: 1200px;
+
+  --font-sans: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* 深色主题 */
+[data-theme="dark"] {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: #222244;
+  --bg-nav: rgba(26, 26, 46, 0.9);
+  --bg-footer: #151528;
+  --bg-tag: #2a2a4a;
+  --bg-code: #2a2a4a;
+
+  --text-primary: #e8e8f0;
+  --text-secondary: #b0b0c8;
+  --text-muted: #7878a0;
+  --text-on-accent: #ffffff;
+
+  --accent: #3fbfb2;
+  --accent-hover: #35a89c;
+  --accent-light: rgba(63, 191, 178, 0.12);
+
+  --border: #333360;
+  --border-light: #2a2a50;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
