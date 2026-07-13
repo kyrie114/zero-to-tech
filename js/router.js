@@ -1,3 +1,5 @@
+import { renderPage } from './render.js';
+
 // 路由（基于 Hash 的单页面应用 SPA）
 let currentPage = 'home';
 let currentBlogId = null;
@@ -39,3 +41,7 @@ function handleHashChange() {
   renderPage();
   updateNavLinks();
 }
+
+export { currentPage, currentBlogId, navigateTo, updateNavLinks, handleHashChange };
+window.navigateTo = navigateTo;
+

@@ -27,3 +27,6 @@ function updateToggleIcon() {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   thumb.textContent = isDark ? '🌙' : '☀️';
 }
+
+export { initTheme, toggleTheme, updateToggleIcon };
+

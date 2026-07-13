@@ -144,3 +144,6 @@ const projects = [
     primary: false
   }
 ];
+
+export { blogPosts, categories, allTags, projects };
+

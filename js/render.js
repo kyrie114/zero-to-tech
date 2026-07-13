@@ -1,3 +1,7 @@
+import { blogPosts, categories, allTags, projects } from './data.js';
+import { initScrollAnimations } from './ui.js';
+import { currentPage, currentBlogId } from './router.js';
+
 // 渲染函数：页面、博客列表/详情、项目展示
 function renderPage() {
   const pages = document.querySelectorAll('.page');
@@ -111,3 +115,6 @@ function renderProjects() {
     </div>
   `).join('');
 }
+
+export { renderPage, renderBlogList, renderBlogDetail, renderProjects };
+

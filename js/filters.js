@@ -1,3 +1,5 @@
+import { blogPosts } from './data.js';
+
 // 小型辅助过滤函数
 function filterByCategory(category) {
   const cards = document.querySelectorAll('.blog-card');
@@ -21,3 +23,7 @@ function filterByCategory(category) {
     });
   }, 3000);
 }
+
+export { filterByCategory };
+window.filterByCategory = filterByCategory;
+

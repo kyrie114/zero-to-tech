@@ -1,3 +1,5 @@
+import { navigateTo } from './router.js';
+
 // UI 辅助函数：滚动动画、移动端菜单、导航初始化、导航栏滚动效果
 function initScrollAnimations() {
   const observer = new IntersectionObserver(
@@ -59,3 +61,6 @@ function initNavbarScroll() {
     }
   });
 }
+
+export { initScrollAnimations, initMobileMenu, initNavigation, initNavbarScroll };
+
