@@ -312,20 +312,12 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-
-  <!-- Render projects on the dedicated Projects page too -->
-  <script>
-    // Also render projects on the projects page
-    document.addEventListener('DOMContentLoaded', () => {
-      const grid2 = document.getElementById('projects-grid-page');
-      if (grid2) {
-        const grid1 = document.getElementById('projects-grid');
-        if (grid1) {
-          grid2.innerHTML = grid1.innerHTML;
-        }
-      }
-    });
-  </script>
+  <script src="js/data.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/init.js"></script>
 </body>
 </html>
