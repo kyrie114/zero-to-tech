@@ -1,4 +1,5 @@
 import { navigateTo } from './router.js';
+import anime from 'animejs';
 
 // UI 辅助函数：滚动动画、移动端菜单、导航初始化、导航栏滚动效果
 function initScrollAnimations() {
@@ -6,15 +7,22 @@ function initScrollAnimations() {
     (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          anime({
+            targets: entry.target,
+            opacity: [0, 1],
+            translateY: [30, 0],
+            duration: 800,
+            easing: 'easeOutQuart'
+          });
           observer.unobserve(entry.target);
+          entry.target.classList.remove('fade-in');
         }
       });
     },
     { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
   );
 
-  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+  document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
   });
 }
