@@ -1,6 +1,6 @@
 import { initTheme, toggleTheme } from './theme.js';
 import { renderProjects } from './render.js';
-import { initNavigation, initMobileMenu, initNavbarScroll, initScrollAnimations } from './ui.js';
+import { initNavigation, initMobileMenu, initNavbarScroll, initScrollAnimations, initHeroAnimation } from './ui.js';
 import { handleHashChange } from './router.js';
 
 // 初始化：在 DOMContentLoaded 事件触发时绑定并初始化所有模块
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
   handleHashChange();
   initScrollAnimations();
+  initHeroAnimation();
 
   // 监听 URL Hash 变化
   window.addEventListener('hashchange', handleHashChange);

@@ -27,6 +27,24 @@ function initScrollAnimations() {
   });
 }
 
+function initHeroAnimation() {
+  const heroContent = document.querySelector('.hero-content');
+  if (!heroContent) return;
+  
+  // 初始隐藏需要动画的元素，防止闪烁
+  const elements = heroContent.querySelectorAll('.hero-label, h1, .hero-subtitle, .hero-actions .btn');
+  elements.forEach(el => el.style.opacity = '0');
+  
+  anime({
+    targets: elements,
+    opacity: [0, 1],
+    translateY: [40, 0],
+    duration: 1000,
+    delay: anime.stagger(150, {start: 300}), // 入场错开时间
+    easing: 'easeOutElastic(1, .8)' // 带有轻微弹性效果
+  });
+}
+
 function initMobileMenu() {
   const toggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -70,5 +88,5 @@ function initNavbarScroll() {
   });
 }
 
-export { initScrollAnimations, initMobileMenu, initNavigation, initNavbarScroll };
+export { initScrollAnimations, initHeroAnimation, initMobileMenu, initNavigation, initNavbarScroll };
 
