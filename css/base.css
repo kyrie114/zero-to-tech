@@ -41,5 +41,4 @@ p { color: var(--text-secondary); font-size: 1rem; line-height: 1.9; }
 .section-desc { max-width: 680px; font-size: 1.05rem; }
 
 /* 滚动动画基础样式 */
-.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-in { opacity: 0; transform: translateY(30px); }
