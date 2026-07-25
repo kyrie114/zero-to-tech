@@ -1,149 +1,297 @@
-// 数据模块：博客文章、分类、标签和项目
-// （提取自原 script.js）
+// 数据模块：课程、博客文章、分类、标签
+
+const courses = [
+  {
+    id: 'zero-to-fullstack',
+    title: '零到全栈',
+    badge: 'active',
+    badgeText: '录制中',
+    desc: '从完全零基础出发，用 8 个模块、23 节课，带你把第一个全栈项目从本地跑到公网上线。',
+    tech: ['React', 'Next.js', 'Python', 'FastAPI', 'Linux'],
+    link: '/courses/zero-to-fullstack',
+    primary: true
+  },
+  {
+    id: 'play-with-agent',
+    title: '玩转 Agent',
+    badge: 'soon',
+    badgeText: '筹备中',
+    desc: '学会驾驭 Claude Code、Cursor 等 AI 工具完成真实任务，理解 Agent 背后的工作机制与局限。',
+    tech: ['Claude Code', 'Cursor', 'AI 工作流', 'Prompt 工程'],
+    link: '#',
+    primary: false
+  },
+  {
+    id: 'deep-learning',
+    title: '深度学习',
+    badge: 'soon',
+    badgeText: '筹备中',
+    desc: '从神经网络的数学直觉出发，理解 LLM 的工作原理，用 PyTorch 亲手验证每一个核心概念。',
+    tech: ['神经网络原理', 'PyTorch', 'LLM 原理', 'Transformer'],
+    link: '#',
+    primary: false
+  }
+];
+
+const lessons = [
+  {
+    id: 'module-1-1',
+    moduleId: 1,
+    title: '模块 1.1：为什么在 AI 时代还要学全栈开发？',
+    desc: '先回答一个问题：今天 AI 已经越来越会写代码了，人为什么还要学习全栈开发？',
+    category: '零到全栈',
+    author: 'Li Bo',
+    date: '2025-07-01',
+    tags: ['AI时代', '全栈', '学习路线'],
+    content: `<h2>为什么还需要学全栈开发？</h2>
+<p>AI 已经可以在几秒钟内生成完整的代码。这让很多初学者产生了疑问：既然 AI 这么厉害，我为什么还要学全栈开发？</p>
+<p>答案很简单：<strong>AI 能写代码，但不能替你理解代码。</strong></p>
+<blockquote>学习成本降低，但理解深度不减。</blockquote>
+<p>在 AI 时代，你的角色从"写代码的人"变成了"理解和管理代码的人"。你需要知道一个项目是如何从想法变成产品的——前端如何展示、后端如何处理数据、服务器如何运行、域名如何指向正确的地址。</p>
+<h2>这门课的目标</h2>
+<p>不是把你培养成一个"会写代码的人"，而是让你具备从想法到产品的完整路径感。</p>
+<ul>
+<li><strong>理解全栈的全景</strong> — 知道前端、后端、数据库、部署各自是什么</li>
+<li><strong>建立工程直觉</strong> — 面对问题时，能判断大致的解决方向</li>
+<li><strong>掌握 AI 协作能力</strong> — 学会用 AI 工具提升效率，同时保持对代码的理解</li>
+</ul>`
+  },
+  {
+    id: 'module-1-2',
+    moduleId: 1,
+    title: '模块 1.2：这门课是怎么安排的',
+    desc: '你可能会有一个"我接下来会怎么学，最后能做出来什么？"的问题，而这节课的任务，就是先把整条路线图交到你手里。',
+    category: '零到全栈',
+    author: 'Li Bo',
+    date: '2025-07-02',
+    tags: ['学习路线', '课程结构', '全栈'],
+    content: `<h2>课程结构</h2>
+<p>这门课分为 8 个模块，每个模块包含 2-3 节课。每节课都有明确的学习目标和可验证的成果。</p>
+<h3>模块概览</h3>
+<ul>
+<li><strong>模块 1</strong>：课程介绍与准备</li>
+<li><strong>模块 2</strong>：认识电脑、终端与互联网</li>
+<li><strong>模块 3</strong>：前端基础（HTML、CSS、JavaScript）</li>
+<li><strong>模块 4</strong>：前端框架（React / Next.js）</li>
+<li><strong>模块 5</strong>：后端基础（Python / FastAPI）</li>
+<li><strong>模块 6</strong>：数据库与数据管理</li>
+<li><strong>模块 7</strong>：部署与上线</li>
+<li><strong>模块 8</strong>：项目实战与迭代</li>
+</ul>
+<blockquote>每一步都会拿到对应的结果，进一寸有一寸的喜悦。</blockquote>`
+  },
+  {
+    id: 'module-1-3',
+    moduleId: 1,
+    title: '模块 1.3：课前准备',
+    desc: '出来混最重要的是"出来"，所有需要的准备就是胸前那一个"勇"字。',
+    category: '零到全栈',
+    author: 'Li Bo',
+    date: '2025-07-03',
+    tags: ['开发环境', 'VS Code', '全栈'],
+    content: `<h2>你需要准备什么？</h2>
+<p>这门课的设计初衷就是面向零基础。你不需要有任何编程经验，只需要：</p>
+<ul>
+<li><strong>一台电脑</strong> — Windows、Mac 都可以</li>
+<li><strong>稳定的网络</strong> — 用于下载工具和访问在线资源</li>
+<li><strong>好奇心</strong> — 这是最重要的准备</li>
+</ul>
+<h2>安装 VS Code</h2>
+<p>VS Code 是我们在这门课中主要使用的代码编辑器。它免费、轻量、功能强大。</p>
+<blockquote>不要等到"准备好了"再开始。在做的过程中准备，是最好的准备方式。</blockquote>`
+  },
+  {
+    id: 'module-2-1',
+    moduleId: 2,
+    title: '模块 2.1：认识你的电脑',
+    desc: '你当然会用电脑，但"会用软件"和"会在电脑里工作"，不是一回事。',
+    category: '零到全栈',
+    author: 'Li Bo',
+    date: '2025-07-05',
+    tags: ['文件系统', '终端', 'MacOS', 'Windows'],
+    content: `<h2>文件系统</h2>
+<p>你每天都在用电脑，但你真的了解文件是怎么组织的吗？</p>
+<p>在这一节中，我们将从最基本的文件系统开始，理解电脑是如何存储和组织数据的。</p>
+<h2>路径的概念</h2>
+<p>路径是文件系统中的地址。就像你家有一个门牌号一样，每个文件在电脑中也有自己的"地址"。</p>
+<ul>
+<li><strong>绝对路径</strong> — 从根目录开始的完整地址</li>
+<li><strong>相对路径</strong> — 从当前位置出发的地址</li>
+</ul>`
+  },
+  {
+    id: 'module-2-2',
+    moduleId: 2,
+    title: '模块 2.2：终端与Linux直觉',
+    desc: '终端本质上只是另一种和电脑交互的方式。',
+    category: '零到全栈',
+    author: 'Li Bo',
+    date: '2025-07-06',
+    tags: ['Linux', '终端', '命令行', 'Ubuntu'],
+    content: `<h2>什么是终端？</h2>
+<p>终端（Terminal）是一个让你通过文字命令与电脑交互的工具。它不是什么"高级工具"，只是另一种交互方式——就像你用鼠标点击图标一样，终端里你用文字告诉电脑该做什么。</p>
+<h2>为什么要学终端？</h2>
+<p>因为在编程的世界里，很多操作通过终端执行更高效、更直接。服务器管理、代码部署、包管理……几乎所有后端工作都离不开终端。</p>
+<blockquote>终端不是黑客的专利，它是开发者的日常工作台。</blockquote>`
+  },
+  {
+    id: 'module-2-3',
+    moduleId: 2,
+    title: '模块 2.3：互联网是怎么工作的',
+    desc: '网页不是凭空出现的。浏览器里看到的东西，总得先来自某个地方。',
+    category: '零到全栈',
+    author: 'Li Bo',
+    date: '2025-07-08',
+    tags: ['互联网', 'HTTP', 'DNS', '服务器'],
+    content: `<h2>当你输入一个网址后发生了什么？</h2>
+<p>这是一个简单却非常重要的问题。理解这个过程，是理解全栈开发的基础。</p>
+<h3>大致流程</h3>
+<ul>
+<li>浏览器发送请求 → DNS 解析域名 → 找到服务器 → 服务器返回网页内容 → 浏览器渲染显示</li>
+</ul>
+<p>这听起来简单，但每一步都涉及大量的技术细节。不过别担心——我们只需要先建立直觉，细节后面会慢慢展开。</p>`
+  }
+];
 
 const blogPosts = [
   {
     id: 1,
-    title: '用 AI 重新定义学习方式',
-    author: 'Kyrie',
+    title: '效率和用心',
+    author: 'Li Bo',
     category: '思考',
-    tags: ['AI时代', '学习方法', '效率'],
+    tags: ['效率', 'Focus', 'Thinking'],
     date: '2025-06-28',
-    excerpt: '在 AI 时代，学习的方式正在发生根本性的变化。我们不再需要死记硬背每一个 API，而是需要建立技术直觉，理解事物运作的本质。这篇文章探讨了如何利用 AI 工具来加速学习过程，同时保持对技术的深度理解。',
-    content: `<h2>为什么学习方式需要改变？</h2>
-<p>传统的编程学习路径是：学语法 → 刷题 → 做项目。这条路径在过去十年非常有效，但在 AI 时代，它的效率已经大打折扣。</p>
-<p>如今，AI 可以在几秒钟内生成你需要花几小时才能写出的代码。这并不意味着我们不需要学习编程了，而是说学习的重心应该从"怎么写代码"转向"如何理解和管理代码"。</p>
-<h2>建立技术直觉</h2>
-<p>技术直觉是什么？简单来说，就是当你看到一个问题时，能快速判断出大致的解决方向。你不需要记住每一个函数的参数，但你需要知道这个函数存在，以及它大概能做什么。</p>
-<blockquote>学习的目标不是记忆，而是理解。理解了原理，实现只是时间问题。</blockquote>
-<h2>实践中的方法论</h2>
+    excerpt: '最近见到很多人或者组织，打着"降本增效"的幌子在摆烂，我觉得值得警惕。',
+    content: `<h2>降本增效的误区</h2>
+<p>最近见到很多人或者组织，打着"降本增效"的幌子在摆烂。效率确实重要，但如果为了追求效率而牺牲了用心，那就本末倒置了。</p>
+<blockquote>效率是手段，用心是目的。没有用心的效率，只是更快地制造问题。</blockquote>
+<h2>什么是真正的效率？</h2>
+<p>真正的效率不是"做得更快"，而是"做对的事情"。一个用心写出来的代码，即使速度慢一点，也比一个敷衍的"高效"代码更有价值。</p>
 <ul>
-<li><strong>先做再学</strong> - 不要等到"准备好了"再开始，在做的过程中学习</li>
-<li><strong>理解概念</strong> - 把精力放在理解"为什么"而不是"怎么做"</li>
-<li><strong>善用 AI</strong> - 让 AI 处理机械性的编码工作，你专注于设计和决策</li>
-<li><strong>持续迭代</strong> - 完成比完美更重要，先跑起来再优化</li>
+<li><strong>用心思考</strong> — 在动手之前想清楚要做什么</li>
+<li><strong>用心执行</strong> — 在做的过程中保持专注</li>
+<li><strong>用心复盘</strong> — 做完之后总结经验</li>
 </ul>`
   },
   {
     id: 2,
-    title: '从零搭建全栈项目的完整路线图',
-    author: 'Kyrie',
-    category: '全栈开发',
-    tags: ['React', 'Node.js', 'Full Stack', '教程'],
+    title: '如何做好一门技术课程',
+    author: 'Li Bo',
+    category: '课程设计',
+    tags: ['Course-Design', 'Teaching', 'Learning-Path'],
     date: '2025-06-15',
-    excerpt: '很多初学者面对全栈开发时感到无从下手。这篇文章梳理了一条清晰的学习路径：从前端基础到后端 API，再到数据库和部署。每一步都有明确的目标和可验证的成果，让你始终知道自己走到了哪里。',
-    content: `<h2>全栈开发的全景图</h2>
-<p>全栈开发看起来很复杂，但如果你把它拆解成一个个小模块，就会发现每个部分其实都不难。难的是把它们串联起来。</p>
-<h2>前端：用户看到的一切</h2>
-<p>前端是用户直接交互的部分。你需要掌握 HTML（结构）、CSS（样式）、JavaScript（行为）这三驾马车。然后选择一个框架（推荐 React），用它来构建更复杂的界面。</p>
-<h2>后端：看不见的引擎</h2>
-<p>后端负责处理业务逻辑、存储数据、验证身份。Node.js + Express 是最容易上手的组合，因为你可以用同一种语言（JavaScript）搞定前后端。</p>
-<h3>推荐的学习顺序</h3>
+    excerpt: '很多人以为，技术课程做得好，核心在"老师懂得多"。我以前也这么想。',
+    content: `<h2>懂得多不等于教得好</h2>
+<p>很多人以为，技术课程做得好，核心在"老师懂得多"。我以前也这么想。但后来发现，懂得多只是基础，真正重要的是如何把知识传递给学习者。</p>
+<h2>好的课程设计</h2>
+<p>一门好的技术课程应该做到：</p>
 <ul>
-<li>HTML & CSS 基础（1-2 周）</li>
-<li>JavaScript 核心概念（2-3 周）</li>
-<li>React 入门（2 周）</li>
-<li>Node.js + Express（2 周）</li>
-<li>数据库基础（1 周）</li>
-<li>部署上线（1 周）</li>
+<li><strong>明确目标</strong> — 学完这节课，学习者能做什么</li>
+<li><strong>循序渐进</strong> — 每一步都是下一步的基础</li>
+<li><strong>实践驱动</strong> — 在做中学，而不是在听中学</li>
+<li><strong>及时反馈</strong> — 让学习者知道自己的进度和问题</li>
 </ul>
-<blockquote>不要追求完美掌握每一步，而是先走通整个流程，然后再回头深入。</blockquote>`
+<blockquote>学习不是灌输，而是引导。好的课程让学习者自己发现答案。</blockquote>`
   },
   {
     id: 3,
-    title: '理解 Transformer：从注意力机制说起',
-    author: 'Kyrie',
-    category: '深度学习',
-    tags: ['Transformer', 'NLP', '深度学习', 'LLM'],
-    date: '2025-05-20',
-    excerpt: 'Transformer 架构是现代大语言模型的基石。本文从最基础的注意力机制开始，一步步建立对 Transformer 的直觉理解。不需要深厚的数学基础，只需要好奇心和耐心。',
-    content: `<h2>为什么是 Transformer？</h2>
-<p>在 Transformer 出现之前，处理序列数据（如文本）主要靠 RNN 和 LSTM。它们有一个致命的缺点：必须按顺序处理，无法并行化。Transformer 用注意力机制彻底解决了这个问题。</p>
-<h2>注意力机制的直觉</h2>
-<p>想象你在读一本书。当你读到"它"这个字时，你的大脑会自动回顾前文，找到"它"指代的对象。这就是注意力机制在做的事情——让模型在处理每个词时，都能"关注"到输入中所有其他相关的词。</p>
-<h3>Query、Key、Value</h3>
-<p>注意力机制的核心是三个概念：Query（查询）、Key（键）、Value（值）。你可以把它想象成一个搜索引擎：Query 是你的搜索词，Key 是每个网页的标题，Value 是网页的内容。</p>
-<blockquote>Attention(Q, K, V) = softmax(QK^T / √d_k)V</blockquote>
-<h2>多头注意力</h2>
-<p>一个注意力头可能只关注语法关系，另一个可能关注语义关系。多头注意力让模型同时从多个角度理解输入，就像你同时用多个视角观察同一件事物。</p>`
+    title: 'AI 时代，学习编程的意义变了',
+    author: 'Li Bo',
+    category: '思考',
+    tags: ['AI时代', '思考'],
+    date: '2025-07-25',
+    excerpt: '当 AI 可以在几秒内生成代码，我们为什么还要学编程？答案可能和你想的不一样。',
+    content: `<h2>编程的本质变了</h2>
+<p>过去，编程的核心价值在于「写代码」——把想法翻译成机器能理解的语言。但在 AI 时代，这个过程被极大地加速了。</p>
+<p>然而，<strong>理解代码</strong>的能力并没有被取代。你需要知道一个系统是如何工作的、数据是如何流动的、问题出在哪里。这些能力，AI 暂时还不能替你完成。</p>
+<h2>新的学习范式</h2>
+<p>在 AI 时代，学习编程的目标不再是「会写代码」，而是：</p>
+<ul>
+<li><strong>理解系统</strong> — 知道各个部分如何协作</li>
+<li><strong>提出正确的问题</strong> — 能用清晰的语言描述需求</li>
+<li><strong>验证结果</strong> — 能判断 AI 生成的代码是否正确</li>
+<li><strong>管理复杂度</strong> — 在项目变大时保持清晰的思路</li>
+</ul>
+<blockquote>从「写代码的人」变成「理解和管理代码的人」——这是 AI 时代学习编程的核心转变。</blockquote>`
   },
   {
     id: 4,
-    title: 'Claude Code 实战：让 AI 帮你写代码',
-    author: 'Kyrie',
+    title: '2025年大模型最新动态：技术突破与产业变革',
+    author: 'Li Bo',
     category: 'AI 工具',
-    tags: ['Claude Code', 'AI Agent', 'Prompt Engineering'],
-    date: '2025-05-08',
-    excerpt: 'Claude Code 不仅仅是一个代码补全工具，它更像是一个能理解你意图的编程伙伴。这篇文章分享了我使用 Claude Code 完成真实项目的经验，以及如何写出更好的 Prompt 来引导 AI 产出高质量代码。',
-    content: `<h2>AI 编程助手的正确打开方式</h2>
-<p>很多人把 AI 编程助手当作一个高级的自动补全工具，这大大低估了它的能力。正确的方式是把它当作一个初级开发者——你需要给它清晰的需求描述，review 它的代码，然后给出反馈。</p>
-<h2>编写有效的 Prompt</h2>
-<p>好的 Prompt 应该包含三个要素：</p>
-<ul>
-<li><strong>上下文</strong> - 你在做什么项目，用什么技术栈</li>
-<li><strong>目标</strong> - 你希望实现什么功能</li>
-<li><strong>约束</strong> - 有什么限制条件（性能、兼容性等）</li>
-</ul>
-<h2>实战案例</h2>
-<p>在开发一个博客系统时，我用 Claude Code 完成了从数据库设计到前端渲染的全部代码。整个过程中，我的角色更像是一个产品经理+架构师，而不是一个逐行编码的程序员。</p>
-<blockquote>未来的开发者不需要记住所有的 API，但需要具备清晰表达需求的能力和审查代码质量的眼光。</blockquote>`
-  },
-  {
-    id: 5,
-    title: 'Git 工作流：团队协作的艺术',
-    author: 'Kyrie',
-    category: '全栈开发',
-    tags: ['Git', 'GitHub', '团队协作'],
-    date: '2025-04-22',
-    excerpt: 'Git 是每个开发者的必备技能，但很多人只会 add、commit、push。这篇文章介绍了几种常见的 Git 工作流模式，帮助你在团队中更高效地协作，避免合并冲突的痛苦。',
-    content: `<h2>为什么需要工作流？</h2>
-<p>当只有你一个人写代码时，Git 很简单。但当团队有 3 个人、5 个人、甚至 50 个人同时开发时，没有统一的工作流就会陷入混乱。</p>
-<h2>常见的工作流模式</h2>
-<h3>Git Flow</h3>
-<p>最经典的工作流，适合有明确版本发布周期的项目。它定义了 main、develop、feature、release、hotfix 五种分支类型。</p>
-<h3>GitHub Flow</h3>
-<p>简化版本，只有 main 分支和 feature 分支。适合持续部署的项目。流程很简单：创建分支 → 提交代码 → 发起 PR → Code Review → 合并。</p>
-<h3>Trunk-Based Development</h3>
-<p>所有人直接在主干上开发，用 feature flag 来控制功能的开关。适合有完善 CI/CD 的团队。</p>
-<blockquote>选择工作流的原则：越简单越好。复杂的工作流往往意味着更多的心智负担和更低的效率。</blockquote>`
+    tags: ['AI时代', '效率', '思考'],
+    date: '2025-07-25',
+    excerpt: '2025年7-8月，全球AI领域迎来密集进展。从谷歌Gemini问鼎数学奥赛到OpenAI开源gpt-oss系列，从欧盟AI法案生效到中国人工智能+行动意见出台，大模型正从技术研发加速迈向产业深水区。',
+    content: `<h2>技术突破：多模态与推理能力再创新高</h2>
+<p>2025年7-8月，全球人工智能领域在技术突破、产业落地、政策治理等方面迎来密集进展。</p>
+<h3>谷歌Gemini问鼎国际数学奥赛</h3>
+<p>7月21日，谷歌DeepMind宣布其高级版Gemini模型在"深度思考"模式下，成功解答2025年国际数学奥林匹克竞赛6道题目中的5道，以35分（满分42分）的成绩达到金牌水平，成为首个获官方认证的AI系统。</p>
+<h3>阿里云Qwen-MT实现92种语言互译</h3>
+<p>阿里云通义千问开源模型团队发布机器翻译大语言模型Qwen-MT最新升级版本，支持92种语言互译。截至7月，通义千问全球衍生模型已突破9万个，API调用量三天内突破1000亿Tokens。</p>
+<h3>OpenAI推出开放权重模型gpt-oss系列</h3>
+<p>8月5日，OpenAI宣布完成80亿美元融资，估值升至3000亿美元。同日发布首款开放权重语言模型gpt-oss系列（gpt-oss-120b和gpt-oss-20b），以Apache 2.0授权开源，推理性能接近闭源模型o4-mini。</p>
+<h2>政策与治理：全球框架加速落地</h2>
+<h3>欧盟《人工智能法案》正式生效</h3>
+<p>8月2日，欧盟《人工智能法案》正式生效，谷歌成为第三家签署欧盟《通用人工智能实践准则》的主流AI开发商，承诺遵守透明度、版权和安全保障要求。</p>
+<h3>中国国务院通过"人工智能+"行动意见</h3>
+<p>7月31日，国务院常务会议审议通过《关于深入实施"人工智能+"行动的意见》，明确三大方向：AI基础设施建设、基础模型与原生应用、现有业务AI转型。</p>
+<h2>行业应用：金融、教育、医疗成落地先锋</h2>
+<h3>券商AI应用集中落地</h3>
+<p>在WAIC大会上，中金公司、中信证券、中信建投等券商AI应用集中亮相。中信证券超级研究员数字员工可30分钟生成1.2万字研报，准确率达95%。</p>
+<h3>教育AI工具链获WAIC优秀案例</h3>
+<p>永州市教育数字化名师工作室的AI工具链入选2025 WAIC优秀案例，新教师备课时间从4小时缩短至1.2小时，学情诊断准确率达92%。</p>
+<blockquote>2025年，AI领域呈现"技术跃迁-资本涌入-政策规范"三重共振，如何在创新速度与安全可控间找到平衡，将是全球AI竞争的关键。</blockquote>`
   }
 ];
 
 const categories = [
-  { name: '全栈开发', count: 2 },
-  { name: '深度学习', count: 1 },
+  { name: '零到全栈', count: 6 },
   { name: '思考', count: 1 },
-  { name: 'AI 工具', count: 1 },
+  { name: '课程设计', count: 1 },
 ];
 
-const allTags = ['AI时代', '学习方法', '效率', 'React', 'Node.js', 'Full Stack', 'Transformer', 'NLP', '深度学习', 'LLM', 'Claude Code', 'AI Agent', 'Git', 'GitHub', 'Prompt Engineering'];
+const allTags = [
+  'AI时代', '全栈', '学习路线', '课程结构', '开发环境',
+  'VS Code', '文件系统', '终端', 'MacOS', 'Windows',
+  'Linux', '命令行', 'Ubuntu', '互联网', 'HTTP', 'DNS',
+  '服务器', '效率', 'Focus', 'Thinking', 'Course-Design',
+  'Teaching', 'Learning-Path'
+];
 
-const projects = [
+const features = [
   {
-    icon: '🚀',
-    title: '全栈博客系统',
-    desc: '使用 React + Node.js + MongoDB 构建的完整博客平台，支持 Markdown 编辑、标签分类、评论系统和暗色模式。',
-    tags: ['React', 'Node.js', 'MongoDB', 'Express'],
-    link: '#',
-    primary: true
+    title: '在"做"中理解，触摸知识',
+    desc: '每一个技术概念的诞生，都源于人们要解决的某个具体问题。学习者会在课程中真实地面对、思考和解决这些问题，逐步理解和掌握技术概念和理论知识。',
+    items: [
+      { strong: '先触摸，再理解', text: '在动手做的过程中积累直觉，然后理解背后的原理' },
+      { strong: '上手体验每个概念', text: '保持所有知识点可体验，可上手' },
+      { strong: '感受比讲解更重要', text: '不仅知道"它怎么工作"，还需"让它工作"' },
+      { strong: '理解会自然浮现', text: '反复实践，原理和规律会慢慢显现' }
+    ],
+    icon: '🎯'
   },
   {
-    icon: '🤖',
-    title: 'AI 对话助手',
-    desc: '基于大语言模型 API 构建的智能对话应用，支持上下文记忆、多轮对话和自定义 Prompt 模板。',
-    tags: ['Python', 'LLM API', 'Prompt Engineering'],
-    link: '#',
-    primary: false
+    title: '克制而完整的路线和脉络',
+    desc: '面向 0 基础学习者设计的学习路径，课程中克制而完整地传递必要的技术概念。学习者可以在俯瞰整体技术脉络的体验下，清晰感受自己的进度和所处的位置。',
+    items: [
+      { strong: '明确且负责任的取舍', text: '有勇气说"现在不讲"，为学习者省去不必要的复杂度' },
+      { strong: '设置步骤级核心目标', text: '每一步都会拿到对应的结果，进一寸有一寸的喜悦' },
+      { strong: '关注"是什么"而非"怎么做"', text: '理解概念的本质，避免被实现细节淹没' },
+      { strong: '完整的技术脉络', text: '每个环节都相连且呼应，让学习者看清整个流程如何运作' }
+    ],
+    icon: '🗺️'
   },
   {
-    icon: '📊',
-    title: '数据可视化平台',
-    desc: '将复杂数据集转化为直观的交互式图表和仪表盘，支持实时数据更新和导出功能。',
-    tags: ['D3.js', 'Python', 'FastAPI', 'WebSocket'],
-    link: '#',
-    primary: false
+    title: '不写代码，管理它',
+    desc: 'AI 已经改变了学习的前提。编码不再是最稀缺的能力，组织和管理代码才是。我们的课程假设：代码由 AI 生成，学习者的职责是理解其中的原理，并使用和运行这些代码。',
+    items: [
+      { strong: '从实现者转向管理者', text: '不要上手编程，而是做代码的组织者和管理者' },
+      { strong: '理解优先于编写', text: '专注于技术的原理和决策，不花时间去记语法和细节' },
+      { strong: '掌握概念与术语', text: '学会用清晰的需求来指导 AI，理解项目进展与处境' },
+      { strong: '更快地到达目标', text: '不被编程的复杂性阻挡，直接理解和应用核心概念' }
+    ],
+    icon: '🤖'
   }
 ];
 
-export { blogPosts, categories, allTags, projects };
-
+export { courses, lessons, blogPosts, categories, allTags, features };
