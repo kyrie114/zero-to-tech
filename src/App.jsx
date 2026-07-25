@@ -1,22 +1,39 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
+// Pages
 import Home from './pages/Home';
+import Courses from './pages/Courses';
+import CoursePost from './pages/CoursePost';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import About from './pages/About';
+import Admin from './pages/Admin';
+import AdminPostEditor from './pages/AdminPostEditor';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<div className="page" style={{paddingTop:'100px'}}><div className="container"><h2>项目页建设中...</h2></div></div>} />
-          <Route path="/blog" element={<div className="page" style={{paddingTop:'100px'}}><div className="container"><h2>博客页建设中...</h2></div></div>} />
-          <Route path="/about" element={<div className="page" style={{paddingTop:'100px'}}><div className="container"><h2>关于页建设中...</h2></div></div>} />
-        </Routes>
-      </main>
-      <Footer />
+      <AuthProvider>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/:id" element={<CoursePost />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/posts/new" element={<AdminPostEditor />} />
+            <Route path="/admin/posts/:id/edit" element={<AdminPostEditor />} />
+          </Routes>
+        </main>
+        <Footer />
+      </AuthProvider>
     </BrowserRouter>
   );
 }
