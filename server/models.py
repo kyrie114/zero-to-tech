@@ -19,6 +19,14 @@ lesson_tags = Table(
     Column("tag_id", Integer, ForeignKey("tags.id", ondelete="CASCADE"), primary_key=True),
 )
 
+# 多对多关联表：笔记-标签
+note_tags = Table(
+    "note_tags",
+    Base.metadata,
+    Column("note_id", Integer, ForeignKey("notes.id", ondelete="CASCADE"), primary_key=True),
+    Column("tag_id", Integer, ForeignKey("tags.id", ondelete="CASCADE"), primary_key=True),
+)
+
 
 class User(Base):
     __tablename__ = "users"
@@ -51,6 +59,7 @@ class Tag(Base):
 
     posts = relationship("Post", secondary=post_tags, back_populates="tags")
     lessons = relationship("Lesson", secondary=lesson_tags, back_populates="tags")
+    notes = relationship("Note", secondary=note_tags, back_populates="tags")
 
 
 class Post(Base):
@@ -112,3 +121,19 @@ class Lesson(Base):
     course = relationship("Course", back_populates="lessons")
     category = relationship("Category", back_populates="lessons")
     tags = relationship("Tag", secondary=lesson_tags, back_populates="lessons")
+
+
+class Note(Base):
+    __tablename__ = "notes"
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String(200), nullable=False)
+    content = Column(Text, nullable=False)
+    author = Column(String(50), default="Kyrie")
+    is_pinned = Column(Boolean, default=False)
+    is_published = Column(Boolean, default=True)
+    view_count = Column(Integer, default=0)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+    tags = relationship("Tag", secondary=note_tags, back_populates="notes")

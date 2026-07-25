@@ -6,7 +6,7 @@ from .models import User, Category, Tag, Post, Course, Lesson
 from .auth import hash_password
 from .routers import (
     auth_router, posts_router, categories_router, tags_router,
-    courses_router, lessons_router, search_router,
+    courses_router, lessons_router, notes_router, search_router,
 )
 
 app = FastAPI(title="Kyrie's Blog API", version="1.0.0")
@@ -27,6 +27,7 @@ app.include_router(categories_router)
 app.include_router(tags_router)
 app.include_router(courses_router)
 app.include_router(lessons_router)
+app.include_router(notes_router)
 app.include_router(search_router)
 
 

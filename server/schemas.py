@@ -254,3 +254,54 @@ class SearchResponse(BaseModel):
     query: str
     results: list[SearchResult]
     total: int
+
+
+# ==================== 笔记 ====================
+class NoteCreate(BaseModel):
+    title: str
+    content: str
+    author: str = "Kyrie"
+    is_pinned: bool = False
+    is_published: bool = True
+    tag_ids: list[int] = []
+
+
+class NoteUpdate(BaseModel):
+    title: Optional[str] = None
+    content: Optional[str] = None
+    author: Optional[str] = None
+    is_pinned: Optional[bool] = None
+    is_published: Optional[bool] = None
+    tag_ids: Optional[list[int]] = None
+
+
+class NoteOut(BaseModel):
+    id: int
+    title: str
+    content: str
+    author: str
+    is_pinned: bool
+    is_published: bool
+    view_count: int
+    created_at: datetime
+    updated_at: datetime
+    tags: list[TagOut]
+
+    class Config:
+        from_attributes = True
+
+
+class NoteListItem(BaseModel):
+    id: int
+    title: str
+    content: str
+    author: str
+    is_pinned: bool
+    is_published: bool
+    view_count: int
+    created_at: datetime
+    updated_at: datetime
+    tags: list[TagOut]
+
+    class Config:
+        from_attributes = True
