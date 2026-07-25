@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { posts as postsApi, categories as categoriesApi, tags as tagsApi, notes as notesApi } from '../api';
+import { posts as postsApi, categories as categoriesApi, tags as tagsApi } from '../api';
 
 export default function Admin() {
   const { user, loading: authLoading, login, logout } = useAuth();
@@ -12,7 +12,6 @@ export default function Admin() {
   const [loginLoading, setLoginLoading] = useState(false);
 
   const [postsList, setPostsList] = useState([]);
-  const [notesList, setNotesList] = useState([]);
   const [cats, setCats] = useState([]);
   const [allTags, setAllTags] = useState([]);
   const [dataLoading, setDataLoading] = useState(false);
@@ -30,12 +29,10 @@ export default function Admin() {
     setDataLoading(true);
     Promise.all([
       postsApi.listAll(),
-      notesApi.listAll(),
       categoriesApi.list(),
       tagsApi.list(),
-    ]).then(([p, n, c, t]) => {
+    ]).then(([p, c, t]) => {
       setPostsList(p);
-      setNotesList(n);
       setCats(c);
       setAllTags(t);
     }).finally(() => setDataLoading(false));
@@ -63,17 +60,6 @@ export default function Admin() {
   async function handleTogglePublish(post) {
     const updated = await postsApi.update(post.id, { is_published: !post.is_published });
     setPostsList(postsList.map(p => p.id === post.id ? updated : p));
-  }
-
-  async function handleDeleteNote(id) {
-    if (!confirm('确定删除这条笔记？')) return;
-    await notesApi.delete(id);
-    setNotesList(notesList.filter(n => n.id !== id));
-  }
-
-  async function handleTogglePin(note) {
-    const updated = await notesApi.update(note.id, { is_pinned: !note.is_pinned });
-    setNotesList(notesList.map(n => n.id === note.id ? updated : n));
   }
 
   async function handleAddCategory(e) {
@@ -250,76 +236,6 @@ export default function Admin() {
                   </tbody>
                 </table>
                 {postsList.length === 0 && <p style={{ textAlign: 'center', padding: '24px', color: 'var(--text-muted)' }}>暂无文章</p>}
-              </div>
-            )}
-          </div>
-
-          {/* 笔记管理 */}
-          <div style={{ marginBottom: '48px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-              <h2>笔记管理</h2>
-              <Link to="/admin/notes/new" className="btn btn-primary">+ 新建笔记</Link>
-            </div>
-            {dataLoading ? <p>加载中...</p> : (
-              <div style={{ overflowX: 'auto' }}>
-                <table style={{
-                  width: '100%', borderCollapse: 'collapse',
-                  background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', overflow: 'hidden',
-                  border: '1px solid var(--border-light)',
-                }}>
-                  <thead>
-                    <tr style={{ background: 'var(--bg-secondary)' }}>
-                      <th style={thStyle}>标题</th>
-                      <th style={thStyle}>置顶</th>
-                      <th style={thStyle}>状态</th>
-                      <th style={thStyle}>浏览</th>
-                      <th style={thStyle}>操作</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {notesList.map(note => (
-                      <tr key={note.id} style={{ borderBottom: '1px solid var(--border-light)' }}>
-                        <td style={tdStyle}>
-                          <Link to={`/notes/${note.id}`} style={{ color: 'var(--text-primary)' }}>{note.title}</Link>
-                        </td>
-                        <td style={tdStyle}>
-                          <span
-                            onClick={() => handleTogglePin(note)}
-                            style={{
-                              cursor: 'pointer',
-                              padding: '3px 10px',
-                              borderRadius: 'var(--radius-pill)',
-                              fontSize: '0.78rem',
-                              background: note.is_pinned ? 'var(--accent-light)' : 'var(--bg-tag)',
-                              color: note.is_pinned ? 'var(--accent)' : 'var(--text-muted)',
-                            }}
-                          >
-                            {note.is_pinned ? '已置顶' : '未置顶'}
-                          </span>
-                        </td>
-                        <td style={tdStyle}>
-                          <span style={{
-                            padding: '3px 10px',
-                            borderRadius: 'var(--radius-pill)',
-                            fontSize: '0.78rem',
-                            background: note.is_published ? 'var(--accent-light)' : 'var(--bg-tag)',
-                            color: note.is_published ? 'var(--accent)' : 'var(--text-muted)',
-                          }}>
-                            {note.is_published ? '已发布' : '草稿'}
-                          </span>
-                        </td>
-                        <td style={tdStyle}>{note.view_count}</td>
-                        <td style={tdStyle}>
-                          <div style={{ display: 'flex', gap: '8px' }}>
-                            <Link to={`/admin/notes/${note.id}/edit`} className="btn btn-outline-primary btn-sm">编辑</Link>
-                            <button onClick={() => handleDeleteNote(note.id)} className="btn btn-outline-primary btn-sm" style={{ color: '#e74c3c', borderColor: '#e74c3c' }}>删除</button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                {notesList.length === 0 && <p style={{ textAlign: 'center', padding: '24px', color: 'var(--text-muted)' }}>暂无笔记</p>}
               </div>
             )}
           </div>

@@ -48,7 +48,6 @@ export default function Navbar() {
           <Link to="/" className={isActive('/') ? 'active' : ''}>首页</Link>
           <Link to="/courses" className={isActive('/courses') ? 'active' : ''}>课程</Link>
           <Link to="/blog" className={isActive('/blog') ? 'active' : ''}>博客</Link>
-          <Link to="/notes" className={isActive('/notes') ? 'active' : ''}>笔记</Link>
           <Link to="/about" className={isActive('/about') ? 'active' : ''}>关于</Link>
           {user?.is_admin && <Link to="/admin" className={isActive('/admin') ? 'active' : ''}>管理</Link>}
         </div>

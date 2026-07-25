@@ -79,33 +79,32 @@
 /* ============================
    首页 Banner 区域
    ============================ */
-.home-banner {
+.hero-section {
   padding-top: calc(var(--nav-height) + 56px);
   padding-bottom: 48px;
   text-align: center;
 }
-.home-banner h1 {
+.hero-title {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 5.5vw, 3.2rem);
   margin-bottom: 16px;
   letter-spacing: -0.01em;
 }
-.home-banner .banner-subtitle {
+.hero-subtitle {
   font-size: 1.15rem;
   color: var(--text-secondary);
   margin-bottom: 32px;
 }
-.banner-keyword {
+.hero-keyword {
   background: var(--accent-light);
   color: var(--accent);
   padding: 2px 12px;
   border-radius: 4px;
   font-weight: 600;
 }
-.banner-image {
-  max-width: 800px; margin: 0 auto;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+.btn-lg {
+  padding: 14px 36px;
+  font-size: 1.05rem;
 }
 
 /* ============================
@@ -225,6 +224,9 @@
 .features-intro .courses-eyebrow { margin-bottom: 10px; }
 .features-intro .courses-subtitle { margin-bottom: 0; }
 
+.features-section {
+  padding: 48px 0 80px;
+}
 .feature-block {
   background: var(--bg-feature);
   border-radius: var(--radius-xl);
@@ -232,24 +234,19 @@
   transition: background-color var(--transition);
 }
 .feature-block + .feature-block { margin-top: 32px; }
+.feature-block--reverse .feature-content {
+  flex-direction: row-reverse;
+}
 .feature-content {
   display: flex; align-items: center; gap: 48px;
 }
-.feature-image {
-  flex-shrink: 0; width: 42%; max-width: 420px;
-  border-radius: var(--radius-md); overflow: hidden;
-}
-.feature-image img {
-  width: 100%; height: auto; object-fit: cover;
-  border-radius: var(--radius-md);
-}
-.feature-text { flex: 1; }
-.feature-text h2 {
+.feature-title {
   font-size: 1.6rem; margin-bottom: 16px;
 }
-.feature-text > p {
+.feature-desc {
   font-size: 1.05rem; margin-bottom: 28px;
   line-height: 1.9;
+  color: var(--text-secondary);
 }
 .feature-list {
   display: flex; flex-direction: column; gap: 16px;

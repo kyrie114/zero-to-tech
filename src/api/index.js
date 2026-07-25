@@ -71,16 +71,3 @@ export const lessonsApi = {
 export const search = {
   query: (q) => request(`/search?q=${encodeURIComponent(q)}`),
 };
-
-// Notes
-export const notes = {
-  list: (params = {}) => {
-    const qs = new URLSearchParams(params).toString();
-    return request(`/notes${qs ? '?' + qs : ''}`);
-  },
-  listAll: () => request('/notes/all'),
-  get: (id) => request(`/notes/${id}`),
-  create: (data) => request('/notes', { method: 'POST', body: JSON.stringify(data) }),
-  update: (id, data) => request(`/notes/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
-  delete: (id) => request(`/notes/${id}`, { method: 'DELETE' }),
-};

@@ -69,10 +69,9 @@ npm run dev
 ## 功能特性
 
 ### 前台功能
-- 首页展示课程系列和课程理念
+- 首页展示课程系列和课程理念（参考李勃老师风格）
 - 博客文章列表和详情页
 - 课程列表和详情页
-- 笔记列表和详情页（支持置顶）
 - 深色/浅色主题切换
 - 响应式设计
 
@@ -80,7 +79,6 @@ npm run dev
 访问 `/admin` 进入管理后台（默认账号：admin / 密码：admin123）
 
 - 文章管理：创建、编辑、删除、发布/取消发布
-- 笔记管理：创建、编辑、删除、置顶/取消置顶
 - 分类管理：添加、删除分类
 - 标签管理：添加、删除标签
 
@@ -93,11 +91,6 @@ npm run dev
 | POST | `/api/posts` | 创建文章（需认证） |
 | PUT | `/api/posts/{id}` | 更新文章（需认证） |
 | DELETE | `/api/posts/{id}` | 删除文章（需认证） |
-| GET | `/api/notes` | 获取笔记列表 |
-| GET | `/api/notes/{id}` | 获取笔记详情 |
-| POST | `/api/notes` | 创建笔记（需认证） |
-| PUT | `/api/notes/{id}` | 更新笔记（需认证） |
-| DELETE | `/api/notes/{id}` | 删除笔记（需认证） |
 | POST | `/api/auth/login` | 用户登录 |
 | GET | `/api/categories` | 获取分类列表 |
 | GET | `/api/tags` | 获取标签列表 |
