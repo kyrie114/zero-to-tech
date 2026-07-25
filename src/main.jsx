@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-// 引入原生的 CSS，保持样式不变
 import '../css/variables.css'
 import '../css/base.css'
 import '../css/components.css'

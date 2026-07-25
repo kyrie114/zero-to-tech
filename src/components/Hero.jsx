@@ -1,34 +1,31 @@
-import { useEffect, useRef } from 'react';
-import { animate, stagger } from 'animejs';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
-  const heroRef = useRef(null);
-
-  useEffect(() => {
-    if (!heroRef.current) return;
-    
-    const elements = heroRef.current.querySelectorAll('.hero-label, h1, .hero-subtitle, .hero-actions .btn');
-    
-    animate(elements, {
-      opacity: [0, 1],
-      translateY: [40, 0],
-      duration: 1000,
-      delay: stagger(150, { start: 300 }),
-      ease: 'outElastic(1, .8)'
-    });
-  }, []);
-
   return (
-    <section className="hero">
-      <div className="hero-content" ref={heroRef}>
-        <span className="hero-label" style={{ opacity: 0 }}>✨ 个人技术博客</span>
-        <h1 style={{ opacity: 0 }}>从零开始，建立技术直觉</h1>
-        <p className="hero-subtitle" style={{ opacity: 0 }}>
-          分享 <span className="highlight">全栈开发</span> 与 <span className="highlight">AI</span> 领域的学习心得与实战经验
+    <section className="home-banner">
+      <div className="container">
+        <h1>从零开始，建立技术直觉</h1>
+        <p className="banner-subtitle">
+          传授 <span className="banner-keyword">在AI时代</span> 把想法做成产品的能力
         </p>
-        <div className="hero-actions">
-          <button className="btn btn-primary" style={{ opacity: 0 }}>开始阅读</button>
-          <button className="btn btn-outline" style={{ opacity: 0 }}>查看项目</button>
+        <div style={{ marginBottom: '40px' }}>
+          <Link to="/courses" className="btn btn-primary">
+            开始学习
+          </Link>
+        </div>
+        <div className="banner-image">
+          <div style={{
+            width: '100%',
+            height: '280px',
+            background: 'linear-gradient(135deg, var(--accent-light) 0%, var(--bg-secondary) 50%, var(--accent-light) 100%)',
+            borderRadius: 'var(--radius-lg)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '4rem'
+          }}>
+            🚀
+          </div>
         </div>
       </div>
     </section>

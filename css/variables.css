@@ -1,33 +1,36 @@
-/* 设计系统 — CSS 变量 */
+/* 设计系统 — CSS 变量 (HugoPlate 风格) */
 :root {
   /* 浅色主题 (默认) */
   --bg-primary: #f5f3ef;
   --bg-secondary: #eae7e0;
   --bg-card: #ffffff;
-  --bg-nav: rgba(245, 243, 239, 0.85);
+  --bg-nav: rgba(245, 243, 239, 0.92);
   --bg-footer: #edeae4;
   --bg-tag: #f0ede7;
   --bg-code: #e8e5de;
+  --bg-feature: #f0ede7;
 
-  --text-primary: #2c2c2c;
-  --text-secondary: #5a5a5a;
-  --text-muted: #8a8a8a;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #888888;
   --text-on-accent: #ffffff;
 
   --accent: #2a8c82;
   --accent-hover: #237a71;
   --accent-light: rgba(42, 140, 130, 0.1);
 
-  --border: #e0ddd6;
-  --border-light: #eae7e0;
+  --border: #ddd8d0;
+  --border-light: #e8e4dc;
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
 
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
+  --radius-xl: 24px;
   --radius-pill: 100px;
 
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -36,32 +39,35 @@
   --nav-height: 72px;
   --max-width: 1200px;
 
-  --font-sans: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-sans: 'LXGW WenKai', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-display: 'LXGW WenKai', 'Noto Sans SC', 'PingFang SC', serif;
 }
 
 /* 深色主题 */
 [data-theme="dark"] {
-  --bg-primary: #1a1a2e;
-  --bg-secondary: #16213e;
-  --bg-card: #222244;
-  --bg-nav: rgba(26, 26, 46, 0.9);
-  --bg-footer: #151528;
-  --bg-tag: #2a2a4a;
-  --bg-code: #2a2a4a;
+  --bg-primary: #131318;
+  --bg-secondary: #1a1a22;
+  --bg-card: #1e1e28;
+  --bg-nav: rgba(19, 19, 24, 0.94);
+  --bg-footer: #161620;
+  --bg-tag: #252530;
+  --bg-code: #252530;
+  --bg-feature: #1a1a24;
 
-  --text-primary: #e8e8f0;
-  --text-secondary: #b0b0c8;
-  --text-muted: #7878a0;
+  --text-primary: #e8e8ee;
+  --text-secondary: #a8a8b8;
+  --text-muted: #686880;
   --text-on-accent: #ffffff;
 
-  --accent: #3fbfb2;
-  --accent-hover: #35a89c;
-  --accent-light: rgba(63, 191, 178, 0.12);
+  --accent: #3ec4b8;
+  --accent-hover: #35ada2;
+  --accent-light: rgba(62, 196, 184, 0.12);
 
-  --border: #333360;
-  --border-light: #2a2a50;
+  --border: #2a2a38;
+  --border-light: #222230;
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
