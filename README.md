@@ -1,17 +1,17 @@
-# zero-to-tech-4-3 · React 版（模块 4.3 配套代码）
+# Zero to Tech · 模块 4.3（TextLab 文字实验室）
 
-这是把模块 4.2 那个 vanilla 网站，用 React **重做一遍**之后的成品：两页都成了 React 组件，整个项目只剩**一个空壳 `index.html`**。
+这是「零到全栈」课程模块 4.3 的配套代码：把模块 4.2 那个 vanilla 网站，用 React **重做一遍**之后的成品——「个人主页 / 文字实验室」两页都成了 React 组件，整个项目只剩**一个空壳 `index.html`**。
 
-> 它是 4.3 的**终点答案册**，不是让你照抄的范本。正确的用法是：在你自己那个 4.2 项目（`zero-to-tech`）上，**跟着下面四拍一步步搭到这个终点**——需要某个文件，就从这个 demo 里把对应文件拷过去。
+> 模块 4.3 的**终点答案册**。如果你是跟着课程学习，建议先在 4.2 的 vanilla 项目上，**按文末的四拍教程一步步搭到这个终点**——需要某个文件，就从这里把对应文件拷过去，不要照抄整份。
 
-## 先把它跑起来看看
+## 快速开始
 
 ```bash
 npm install      # 照 package.json 把依赖装进 node_modules
 npm run dev      # 起本地服务器，浏览器开 http://localhost:5173
 ```
 
-点顶部导航能在「个人主页 / 文字实验室」之间切。看明白它长什么样，再回到自己项目动手。
+点顶部导航能在「个人主页 / 文字实验室」之间切。
 
 ## 这个项目的层级
 
@@ -30,9 +30,9 @@ index.html              ← 空壳，只提供一个挂载点 <div id="root">
 
 ---
 
-## 把你的 4.2 项目改造成这样：四拍
+## 跟着做：把你的 4.2 项目改造成这样（四拍）
 
-> 全程在你自己的 `zero-to-tech` 项目里改，**不要删整个项目、不要碰 `.git`**。需要的文件从本 demo 的对应路径拷过去即可。
+> 学习路线。全程在一个 4.2 的 vanilla 项目里改，**不要删整个项目、不要碰 `.git`**。需要的文件从本项目的对应路径拷过去即可。
 
 ### 先装好 React（四拍都要用，只做一次）
 
@@ -54,19 +54,12 @@ export default defineConfig({
 
 > 下载只是把插件放到本地，`react()` 这一行才真正把它挂进 Vite——两步都做了，Vite 才看得懂 `.jsx`。
 
-还要把**本 demo 仓库**拉到本地——后面每一拍都从这里往你的项目里拷文件（你既然在读这份 README，多半已经拉过了，列在这里只为完整）：
-
-```bash
-git clone https://github.com/joylibo/zero-to-tech-demos.git
-cd zero-to-tech-demos/zero-to-tech-4-3
-```
-
-> 之后所有"拷入 X"都是指：从这个 demo 目录，把文件拷进你自己的 `zero-to-tech` 项目对应位置。
+> 之后所有"拷入 X"都是指：从本项目的对应路径，把文件拷进你自己的 4.2 项目对应位置。
 
 ### 第一拍：先把「结果区」一张卡做成 React
 
 1. 拷入 `src/components/ResultCard.jsx`（项目里没有 `src/components/` 目录就先新建）。
-2. 新建入口 `src/result.jsx`（**本 demo 没有这个文件，是过渡用的，自己照下面建**）：
+2. 新建入口 `src/result.jsx`（**本项目没有这个文件，是过渡用的，自己照下面建**）：
    ```jsx
    import { createRoot } from "react-dom/client";
    import ResultCard from "./components/ResultCard.jsx";
@@ -183,8 +176,8 @@ cd zero-to-tech-demos/zero-to-tech-4-3
 ### 第四拍：全新入口 main.jsx + 全新 index.html
 
 1. **删掉**：旧的 `index.html`、`text-lab.html`、`src/textlab.jsx`、旧的 `js/`、旧的 `css/`。
-2. 拷入 `src/main.jsx`（从 demo 的 `src/main.jsx` 拷过来——它把 `App` 挂进 `#root`，并 import 8 个 css；写法和 `textlab.jsx` 几乎一样，只是渲染的是 `<App />`）。
-3. **新建**一个全新的 `index.html`，放在项目根目录，**完整内容如下**（直接照抄，也可以从 demo 根目录的 `index.html` 拷过来）：
+2. 拷入 `src/main.jsx`（它把 `App` 挂进 `#root`，并 import 8 个 css；写法和 `textlab.jsx` 几乎一样，只是渲染的是 `<App />`）。
+3. **新建**一个全新的 `index.html`，放在项目根目录，**完整内容如下**（直接照抄，也可以从本项目根目录的 `index.html` 拷过来）：
 
    ```html
    <!doctype html>
@@ -201,8 +194,8 @@ cd zero-to-tech-demos/zero-to-tech-4-3
    </html>
    ```
 
-4. `npm run dev`，开 `/`——两页都是 React，导航可切。**至此你的项目和本 demo 一模一样。**
+4. `npm run dev`，开 `/`——两页都是 React，导航可切。**至此你的项目和本仓库一模一样。**
 
 ## 关于过渡文件
 
-`src/result.jsx`、`src/textlab.jsx` 是第一、二拍的**临时入口**，到第四拍会被 `src/main.jsx` 取代删除，所以**本 demo（终点状态）里不包含它们**——按上面步骤自己新建即可。
+`src/result.jsx`、`src/textlab.jsx` 是第一、二拍的**临时入口**，到第四拍会被 `src/main.jsx` 取代删除，所以**本项目（终点状态）里不包含它们**——按上面步骤自己新建即可。
