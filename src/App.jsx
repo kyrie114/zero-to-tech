@@ -1,41 +1,22 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { useState } from "react";
+import HomePage from "./components/HomePage.jsx";
+import TextLabPage from "./components/TextLabPage.jsx";
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+export default function App() {
+  // page 是个"状态"——它一变，下面的界面就跟着重新渲染。
+  // 这一节先把它当"框架的规则"用、不展开；"状态到底替你管什么"，留到 4.4。
+  const [page, setPage] = useState("home");
 
-// Pages
-import Home from './pages/Home';
-import Courses from './pages/Courses';
-import CoursePost from './pages/CoursePost';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import About from './pages/About';
-import Admin from './pages/Admin';
-import AdminPostEditor from './pages/AdminPostEditor';
-
-function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/courses/:id" element={<CoursePost />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/admin/posts/new" element={<AdminPostEditor />} />
-            <Route path="/admin/posts/:id/edit" element={<AdminPostEditor />} />
-          </Routes>
+    <div className="app-shell">
+      <div className="page-shell">
+        <main className="page-content">
+          {/* 两个页面来回切——靠的是组件，不再是两个独立的 html 文件 */}
+          {page === "home"
+            ? <HomePage current={page} onNavigate={setPage} />
+            : <TextLabPage current={page} onNavigate={setPage} />}
         </main>
-        <Footer />
-      </AuthProvider>
-    </BrowserRouter>
+      </div>
+    </div>
   );
 }
-
-export default App;
