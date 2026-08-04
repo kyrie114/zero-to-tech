@@ -93,6 +93,13 @@
   word-break: break-word;
 }
 
+.lab-count {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.3;
+  letter-spacing: -0.12px;
+}
+
 .result-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
