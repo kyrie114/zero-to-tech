@@ -17,6 +17,7 @@ export const home = {
   identity: {
     motto: "已识乾坤大，尤怜草木青",
     learning: "零到全栈",
+    hobbies: "阅读、写作、旅行、摄影",
   },
 };
 

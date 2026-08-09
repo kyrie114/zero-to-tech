@@ -35,6 +35,10 @@ export default function HomeView() {
           <p className="section-kicker">正在学习</p>
           <p className="identity-value">{home.identity.learning}</p>
         </div>
+        <div className="identity-item">
+          <p className="section-kicker">兴趣爱好</p>
+          <p className="identity-value">{home.identity.hobbies}</p>
+        </div>
       </article>
     </AnimatedCardGrid>
   );
