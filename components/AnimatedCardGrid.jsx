@@ -16,7 +16,7 @@ export default function AnimatedCardGrid({ className, children }) {
       translateY: [24, 0],
       delay: stagger(120),     // 每张卡错开 120ms
       duration: 700,
-      ease: "outBack",         // 弹性落地
+      ease: "outElastic",         // 弹性落地
     });
   }, []);
 
