@@ -1,13 +1,9 @@
 "use client";
 
-// 文字实验室的"输入区"卡片。和 4.4 一字未改。
-// text 是这张卡自己揣着的 state，打字就变、下面"已输入 N 字"当场跟着跳。
-// 因为用了 useState，要在浏览器里跑，所以顶上标了 "use client"。
-import { useState } from "react";
-
-export default function InputCard() {
-  const [text, setText] = useState("今天的风很轻，适合把脑海里的想法慢慢写下来。");
-
+// 文字实验室的"输入区"卡片。
+// text / setText / onAnalyze 都来自父亲 TextLabView（状态提升后，输入卡自己不再藏 state）。
+// 打字 → setText；点「开始分析」→ onAnalyze 喊父亲把当前 text 冻进 result。
+export default function InputCard({ text, setText, onAnalyze }) {
   return (
     <article className="panel panel-half lab-panel card">
       <div className="panel-heading">
@@ -23,10 +19,10 @@ export default function InputCard() {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        {/* state 现身：text 一变，这行数字自动跟着变 */}
         <p className="lab-count">已输入 {text.length} 字</p>
-        {/* "开始分析"要真出结果，得等模块 5 接后端，这里先按兵不动 */}
-        <button className="primary-button" type="button">开始分析</button>
+        <button className="primary-button" type="button" onClick={onAnalyze}>
+          开始分析
+        </button>
       </form>
     </article>
   );

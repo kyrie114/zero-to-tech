@@ -1,13 +1,14 @@
 "use client";
 
-// 结果区卡片。和 4.4 一字未改。
+// 结果区卡片。
 // 一挂载就自己淡入、把情感分数滚动归位（anime.js 的入场动画）。
-// 因为用了 useEffect / useRef / anime.js，要在浏览器里跑，所以顶上标了 "use client"。
-// （拼音、情感分数都是写死的假数据，真分析等模块 5 接后端。）
+// 原文 / 拼音来自父亲 TextLabView 传来的 result（点「开始分析」后才有值）。
+// 拼音用 pinyin-pro 从原文现场算出；情感分数仍是演示用假数据（真分析等模块 5）。
 import { useEffect, useRef } from "react";
 import { animate, scrambleText } from "animejs";
+import { pinyin } from "pinyin-pro";
 
-export default function ResultCard() {
+export default function ResultCard({ result }) {
   const cardRef = useRef(null);
   const scoreRef = useRef(null);
 
@@ -26,6 +27,10 @@ export default function ResultCard() {
     });
   }, []);
 
+  const pinyinText = result
+    ? pinyin(result, { toneType: "symbol", type: "array" }).join(" ")
+    : "点左侧「开始分析」后，拼音会出现在这里。";
+
   return (
     <article ref={cardRef} className="panel panel-half lab-panel result-panel card">
       <div className="panel-heading">
@@ -35,11 +40,11 @@ export default function ResultCard() {
       <div className="result-stack">
         <div className="result-item">
           <span>原文</span>
-          <p>今天的风很轻，适合把脑海里的想法慢慢写下来。</p>
+          <p>{result ?? "点左侧「开始分析」后，原文会出现在这里。"}</p>
         </div>
         <div className="result-item">
           <span>拼音</span>
-          <p>jīn tiān de fēng hěn qīng …</p>
+          <p>{pinyinText}</p>
         </div>
         <div className="result-grid">
           <div className="result-badge">
